@@ -1,11 +1,30 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import styles from "@/styles/Home.module.scss";
+import { Toaster, toast } from "sonner";
+import emailjs from "@emailjs/browser";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_hxr4fus",
+        "template_66gdusf",
+        e.target,
+        "3v7W1-5pYl5Q_8HJz"
+      )
+      .then(() => toast.success("Mensaje Enviado"))
+      .catch((err) => toast.error("Mensaje no Enviado"));
+
+    e.target.formNombre.value = "";
+    e.target.formTitulo.value = "";
+    e.target.formLink.value = "";
+  };
+
   return (
     <>
       <Head>
@@ -15,100 +34,62 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
+        <section className={styles.header}>
+          <div className={styles.video}>
+            <iframe
+              className={styles.videoYT}
+              width="600"
+              height="315"
+              src="https://www.youtube.com/embed/f5H6eBFdb9k?si=53tVULjJdiJZxiyy"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+
+            <a href="https://streamable.com/" target={"_blank"}>
+              <p>Ir a streamable</p>
             </a>
           </div>
-        </div>
+        </section>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
+        <section className={styles.form}>
+          <form action="" className="form" onSubmit={sendEmail}>
+            <p className="form__p">Nombre de Familia:</p>
+            <input
+              type="text"
+              name="from_name"
+              id="formNombre"
+              className="form__input"
+              placeholder="Nombre"
+              required
+            />
+            <p className="form__p">Titulo del clip:</p>
+            <input
+              type="text"
+              name="titulo"
+              id="formTitulo"
+              className="form__input"
+              placeholder="Titulo de la idea"
+              required
+              minLength={6}
+            />
+            <p className="form__p">Link al video:</p>
+            <input
+              name="message"
+              id="formLink"
+              className="form__area"
+              placeholder="Descripcion"
+              required
+            />
+            <button type="submit" className="form__submit">
+              Enviar
+            </button>
+          </form>
+        </section>
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
+        <Toaster />
       </main>
     </>
-  )
+  );
 }

@@ -1,0 +1,88 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  padding: 6rem;
+  min-height: 100vh;
+  background-image: url(https://s1.pearlcdn.com/NAEU/Upload/Community/e0c9557535620220402203806156.gif);
+  background-repeat: none;
+  background-size: cover;}
+
+  .video{
+    display: flex;
+    flex-direction: column;
+
+    iframe{
+      border-top-right-radius: 15px;
+      border-top-left-radius: 15px;
+    }
+
+    a{
+      background-color: rgb(151, 151, 151);
+      width: 100%;
+      height: 40px;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      border-bottom-right-radius: 15px;
+      border-bottom-left-radius: 15px;
+      transition-duration: .3s;
+      &:hover {
+            background-color: rgb(170, 47, 123);
+          }
+
+      p{
+        color: black;
+        font-weight: 600;
+      }
+    }
+  }
+
+.form{
+  min-width: 600px;
+  background-color: rgb(54, 54, 54);
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 10px 10px 24px 0px rgba(0,0,0,0.55);
+
+  form{
+    display: flex;
+    flex-direction: column;
+   
+    
+
+    p{
+      margin-top: 10px;
+    }
+
+    input{
+      height: 30px;
+      width: 100%;
+      border-radius: 5px;
+      background-color: white;
+      color: black;
+      outline: none;
+      border: none;
+      padding-left: 10px;
+    }
+
+    button{
+      padding: 10px 20px 10px 20px;
+
+      margin-top: 20px;
+      
+      border-radius: 15px;
+      border: none;
+      cursor: pointer;
+      transition-duration: .3s;
+
+      &:hover{
+        background-color: rgb(170, 47, 123);
+      }
+    }
+
+  }
+
+}
