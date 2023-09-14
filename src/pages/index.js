@@ -34,21 +34,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
+        <img src="https://i.imgur.com/UAh55vv.png" alt="" />
         <section className={styles.header}>
           <div className={styles.video}>
-            <iframe
-              className={styles.videoYT}
-              width="100%"
-              height="315"
-              src="https://www.youtube.com/embed/f5H6eBFdb9k?si=53tVULjJdiJZxiyy"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-
             <a href="https://streamable.com/" target={"_blank"}>
-              <p>Ir a streamable</p>
+              <p>Sube tu video en Streamable</p>
             </a>
           </div>
         </section>
@@ -87,6 +77,13 @@ export default function Home() {
             </button>
           </form>
         </section>
+
+        <footer>
+          Hecho por{" "}
+          <a href="https://www.sebassotelo.com.ar/" target="_blank">
+            Sebas Sotelo
+          </a>
+        </footer>
 
         <Toaster />
       </main>
