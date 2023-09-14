@@ -13,6 +13,7 @@
   .video{
     display: flex;
     flex-direction: column;
+    width: 600px;
 
     iframe{
       border-top-right-radius: 15px;
@@ -85,4 +86,16 @@
 
   }
 
+}
+
+@media (max-width:900px){
+  .video {
+
+      width: 95vw;
+    }
+
+  .form {
+      min-width: 95vw;
+     
+    }
 }

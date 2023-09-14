@@ -38,7 +38,7 @@ export default function Home() {
           <div className={styles.video}>
             <iframe
               className={styles.videoYT}
-              width="600"
+              width="100%"
               height="315"
               src="https://www.youtube.com/embed/f5H6eBFdb9k?si=53tVULjJdiJZxiyy"
               title="YouTube video player"
@@ -70,7 +70,7 @@ export default function Home() {
               name="titulo"
               id="formTitulo"
               className="form__input"
-              placeholder="Titulo de la idea"
+              placeholder="Titulo del Clip"
               required
               minLength={6}
             />
@@ -79,7 +79,7 @@ export default function Home() {
               name="message"
               id="formLink"
               className="form__area"
-              placeholder="Descripcion"
+              placeholder="Link al video"
               required
             />
             <button type="submit" className="form__submit">
